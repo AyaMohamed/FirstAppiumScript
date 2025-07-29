@@ -1,5 +1,6 @@
 package Android;
 
+import Base.BaseTest;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
@@ -14,22 +15,14 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.Collections;
 
-public class DragDropTest {
+public class DragDropTest extends BaseTest {
 
-    private AndroidDriver driver;
-
-    @BeforeTest
+    @BeforeMethod
     public void setUp() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("appium:platformVersion", "13"); // change to your actual version
-        capabilities.setCapability("appium:deviceName", "Galaxy Note 10 Lite"); // or emulator name
-        capabilities.setCapability("appium:automationName", "UiAutomator2");
-        capabilities.setCapability("appium:udid", "RF8N327PL0Y"); // replace with actual UDID
         capabilities.setCapability("appium:app", System.getProperty("user.dir") + "/apps/ApiDemos-Debug.apk");
         capabilities.setCapability("appium:appWaitActivity", "io.appium.android.apis.*");
-
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        initDriver(capabilities);
     }
 
     @Test
