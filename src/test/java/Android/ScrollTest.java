@@ -14,7 +14,7 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.Collections;
 
-public class ScrollAndroidTest {
+public class ScrollTest {
 
     private AndroidDriver driver;
 
