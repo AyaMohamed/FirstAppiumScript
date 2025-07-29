@@ -1,5 +1,6 @@
 package Android;
 
+import Base.BaseTest;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.Dimension;
@@ -14,23 +15,13 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.Collections;
 
-public class ScrollTest {
-
-    private AndroidDriver driver;
+public class ScrollTest extends BaseTest {
 
     @BeforeTest
     public void setUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("appium:platformVersion", "13.0");
-        caps.setCapability("appium:deviceName", "Galaxy Note 10 Lite");
-        caps.setCapability("appium:automationName", "UiAutomator2");
-        caps.setCapability("appium:udid", "RF8N327PL0Y");
         caps.setCapability("appium:app", System.getProperty("user.dir") + "/apps/ApiDemos-Debug.apk");
-        caps.setCapability("appium:appWaitActivity", "io.appium.android.apis.*");
-        caps.setCapability("appium:autoGrantPermissions", true); // optional
-        caps.setCapability("appium:newCommandTimeout", 300);     // optional
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+        initDriver(caps);
     }
 
     private void scrollVertical(double startRatio, double endRatio) {
