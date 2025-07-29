@@ -1,8 +1,10 @@
 package Base;
+
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -33,10 +35,11 @@ public abstract class BaseTest {
 
     //Dismisses a generic OK popup if it appears.
     protected void dismissUpdatePopupIfPresent() {
+        By okButton = By.id("android:id/button1"); // Standard ID for 'OK' in Android dialogs
         try {
-            if(driver.findElement(By.xpath("//*[@text='OK']")).isDisplayed()) {
-                var okButton = driver.findElement(By.xpath("//*[@text='OK']"));
-                okButton.click();
+            if (driver.findElement(okButton).isDisplayed())
+            {
+                driver.findElement(okButton).click();
             }
         } catch (Exception ignored) {
         }
