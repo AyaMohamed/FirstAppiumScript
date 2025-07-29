@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Appium Suite" parallel="false">
+    <test name="All Android Tests">
+        <classes>
+            <class name="Android.ClipboardTest"/>
+            <class name="Android.DragDropTest"/>
+            <class name="Android.ScrollTest"/>
+            <class name="Android.SwipeTest"/>
+        </classes>
+    </test>
+</suite>
