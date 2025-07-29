@@ -57,7 +57,7 @@ public class DragDropTest extends BaseTest {
         driver.perform(Collections.singletonList(dragNDrop));
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         if (driver != null) {
             driver.quit();

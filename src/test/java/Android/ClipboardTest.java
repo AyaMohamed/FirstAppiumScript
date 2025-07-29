@@ -34,7 +34,7 @@ public class ClipboardTest extends BaseTest {
         Assert.assertEquals(nameField.getText(), inputText);
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         if (driver != null) {
             driver.quit();

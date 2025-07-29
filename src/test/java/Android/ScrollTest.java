@@ -17,10 +17,11 @@ import java.util.Collections;
 
 public class ScrollTest extends BaseTest {
 
-    @BeforeTest
+    @BeforeMethod
     public void setUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("appium:app", System.getProperty("user.dir") + "/apps/ApiDemos-Debug.apk");
+        caps.setCapability("appium:appWaitActivity", "io.appium.android.apis.*");
         initDriver(caps);
     }
 
@@ -52,7 +53,7 @@ public class ScrollTest extends BaseTest {
         lists.click();
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         if (driver != null) {
             driver.quit();
