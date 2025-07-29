@@ -1,34 +1,28 @@
 package Android;
 
+import Base.BaseTest;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
-import org.testng.annotations.*;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
 import java.util.Collections;
 
-public class SwipeTest {
+public class SwipeTest extends BaseTest {
 
-    private AndroidDriver driver;
-
-    @BeforeTest
+    @BeforeMethod
     public void setUp() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("appium:platformVersion", "13"); // Use your real version
-        capabilities.setCapability("appium:deviceName", "Galaxy Note 10 Lite"); // or emulator
-        capabilities.setCapability("appium:automationName", "UiAutomator2");
-        capabilities.setCapability("appium:udid", "RF8N327PL0Y"); // Use your device ID
         capabilities.setCapability("appium:app", System.getProperty("user.dir") + "/apps/ApiDemos-Debug.apk");
-        driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
+        initDriver(capabilities);
     }
 
     @Test
